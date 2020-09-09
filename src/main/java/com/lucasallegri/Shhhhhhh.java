@@ -59,10 +59,16 @@ public class Shhhhhhh extends ListenerAdapter {
 			CommandUpdate.handle(this, event);
 		} else if (rawMessage.contains("a.dead")) {
 			CommandDead.handle(this, event);
+		} else if (rawMessage.contains("a.call")) {
+			CommandCall.handle(this, event);
+		} else if (rawMessage.contains("a.lobby")) {
+			CommandLobby.handle(this, event);
+		} else if (rawMessage.contains("a.playing")) {
+			CommandPlaying.handle(this, event);
 		} else if (rawMessage.contains("a.debug")) {
 			CommandDebug.handle(this, event);
 		} else {
-			event.getChannel().sendMessage("Command not found.").queue();
+			event.getChannel().sendMessage("Valid commands: ```a. + lobby,playing,call,dead,update,debug```").queue();
 		}
 	}
 

@@ -1,5 +1,7 @@
 com/lucasallegri/Shhhhhhh.java
  com.lucasallegri.Shhhhhhh
+com/lucasallegri/CommandDead.java
+ com.lucasallegri.CommandDead
 com/lucasallegri/ShhhhhhhApp.java
  com.lucasallegri.ShhhhhhhApp
 com/lucasallegri/CommandUpdate.java
