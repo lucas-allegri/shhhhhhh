@@ -53,17 +53,16 @@ public class Shhhhhhh extends ListenerAdapter {
 			return;
 		}
 		
-		Message msg = event.getMessage();
-		switch (msg.getContentRaw()) {
-		case "a.update":
+		Message message = event.getMessage();
+		String rawMessage = message.getContentRaw();
+		if(rawMessage.contains("a.update")) {
 			CommandUpdate.handle(this, event);
-			break;
-		case "a.debug":
+		} else if (rawMessage.contains("a.dead")) {
+			CommandDead.handle(this, event);
+		} else if (rawMessage.contains("a.debug")) {
 			CommandDebug.handle(this, event);
-			break;
-		default:
+		} else {
 			event.getChannel().sendMessage("Command not found.").queue();
-			break;
 		}
 	}
 
