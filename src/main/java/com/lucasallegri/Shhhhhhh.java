@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 public class Shhhhhhh extends ListenerAdapter {
 
@@ -29,6 +30,7 @@ public class Shhhhhhh extends ListenerAdapter {
 		try {
 			this.session = JDABuilder
 					.createLight(this.token, GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_VOICE_STATES)
+					.enableCache(CacheFlag.VOICE_STATE)
 					.addEventListeners(this).setActivity(Activity.playing("Among Us")).build();
 		} catch (LoginException e) {
 			e.printStackTrace();
