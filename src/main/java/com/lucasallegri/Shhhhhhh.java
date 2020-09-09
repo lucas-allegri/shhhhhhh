@@ -32,9 +32,7 @@ public class Shhhhhhh extends ListenerAdapter {
 	private void initSession() {
 
 		try {
-			this.session = JDABuilder
-					.createDefault(this.token)
-					.enableCache(CacheFlag.VOICE_STATE)
+			this.session = JDABuilder.createDefault(this.token).enableCache(CacheFlag.VOICE_STATE)
 					.addEventListeners(this).setActivity(Activity.playing("Among Us")).build();
 		} catch (LoginException e) {
 			e.printStackTrace();
@@ -47,15 +45,16 @@ public class Shhhhhhh extends ListenerAdapter {
 
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
-		
-		// Drop the message event when it's author is our bot.
-		if(event.getAuthor().getId().equals(this.session.getSelfUser().getId())) {
-			return;
-		}
-		
+
 		Message message = event.getMessage();
 		String rawMessage = message.getContentRaw();
-		if(rawMessage.contains("a.update")) {
+
+		// Drop the message event when it's author is our bot.
+		if (event.getAuthor().getId().equals(this.session.getSelfUser().getId()) || !rawMessage.startsWith("a.")) {
+			return;
+		}
+
+		if (rawMessage.contains("a.update")) {
 			CommandUpdate.handle(this, event);
 		} else if (rawMessage.contains("a.dead")) {
 			CommandDead.handle(this, event);
@@ -74,7 +73,6 @@ public class Shhhhhhh extends ListenerAdapter {
 
 	@Override
 	public String toString() {
-		return "[Shhhhhhh voiceChannel=" + this.voiceChannel + ",crew=" + this.crew + ",dead="
-				+ this.dead + "]";
+		return "[Shhhhhhh voiceChannel=" + this.voiceChannel + ",crew=" + this.crew + ",dead=" + this.dead + "]";
 	}
 }
