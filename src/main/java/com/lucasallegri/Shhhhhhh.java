@@ -49,7 +49,7 @@ public class Shhhhhhh extends ListenerAdapter {
 		Message message = event.getMessage();
 		String rawMessage = message.getContentRaw();
 
-		// Drop the message event when it's author is our bot.
+		// Drop the message event when it's author is our bot or it doesn't start with the proper prefix.
 		if (event.getAuthor().getId().equals(this.session.getSelfUser().getId()) || !rawMessage.startsWith("a.")) {
 			return;
 		}
