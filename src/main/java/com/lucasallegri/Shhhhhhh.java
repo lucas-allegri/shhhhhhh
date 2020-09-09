@@ -1,23 +1,27 @@
 package com.lucasallegri;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.security.auth.login.LoginException;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 public class Shhhhhhh extends ListenerAdapter {
 
 	public JDA session;
 	public String token;
-	public String voiceChannelSnowflake;
-	public int[] dead;
-	public int[] crew;
+	public VoiceChannel voiceChannel;
+	public List<Member> dead = new ArrayList<Member>();
+	public List<Member> crew = new ArrayList<Member>();
 
 	public Shhhhhhh(String token) {
 
@@ -29,7 +33,7 @@ public class Shhhhhhh extends ListenerAdapter {
 
 		try {
 			this.session = JDABuilder
-					.createLight(this.token, GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_VOICE_STATES)
+					.createDefault(this.token)
 					.enableCache(CacheFlag.VOICE_STATE)
 					.addEventListeners(this).setActivity(Activity.playing("Among Us")).build();
 		} catch (LoginException e) {
@@ -65,7 +69,7 @@ public class Shhhhhhh extends ListenerAdapter {
 
 	@Override
 	public String toString() {
-		return "[Shhhhhhh voiceChannelSnowflake=" + this.voiceChannelSnowflake + ",crew=" + this.crew + ",dead="
+		return "[Shhhhhhh voiceChannelSnowflake=" + this.voiceChannel + ",crew=" + this.crew + ",dead="
 				+ this.dead + "]";
 	}
 }
