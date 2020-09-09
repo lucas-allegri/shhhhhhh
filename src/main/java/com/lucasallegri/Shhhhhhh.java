@@ -41,6 +41,12 @@ public class Shhhhhhh extends ListenerAdapter {
 
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
+		
+		// Drop the message event when it's author is our bot.
+		if(event.getAuthor().getId().equals(this.session.getSelfUser().getId())) {
+			return;
+		}
+		
 		Message msg = event.getMessage();
 		switch (msg.getContentRaw()) {
 		case "a.update":
@@ -50,7 +56,7 @@ public class Shhhhhhh extends ListenerAdapter {
 			CommandDebug.handle(this, event);
 			break;
 		default:
-			event.getChannel().sendMessage("Command not found.");
+			event.getChannel().sendMessage("Command not found.").queue();
 			break;
 		}
 	}
