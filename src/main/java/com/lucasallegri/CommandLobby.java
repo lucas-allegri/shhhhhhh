@@ -7,8 +7,8 @@ public class CommandLobby {
 	
 	public static void handle(Shhhhhhh bot, MessageReceivedEvent evt) {
 		for(Member member : bot.crew) {
-			member.mute(false);
-			member.deafen(false);
+			member.mute(false).queue();
+			member.deafen(false).queue();
 			bot.dead.clear();
 		}
 	}

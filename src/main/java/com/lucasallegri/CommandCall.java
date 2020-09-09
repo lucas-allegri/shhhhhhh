@@ -8,12 +8,12 @@ public class CommandCall {
 	public static void handle(Shhhhhhh bot, MessageReceivedEvent evt) {
 		for(Member member : bot.crew) {
 			if(bot.dead.contains(member)) {
-				member.mute(true);
-				member.deafen(false);
+				member.mute(true).queue();
+				member.deafen(false).queue();
 				continue;
 			}
-			member.mute(false);
-			member.deafen(false);
+			member.mute(false).queue();
+			member.deafen(false).queue();
 		}
 	}
 }

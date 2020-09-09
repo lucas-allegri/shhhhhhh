@@ -1,9 +1,15 @@
+com/lucasallegri/CommandLobby.java
+ com.lucasallegri.CommandLobby
 com/lucasallegri/Shhhhhhh.java
  com.lucasallegri.Shhhhhhh
 com/lucasallegri/CommandDead.java
  com.lucasallegri.CommandDead
+com/lucasallegri/CommandCall.java
+ com.lucasallegri.CommandCall
 com/lucasallegri/ShhhhhhhApp.java
  com.lucasallegri.ShhhhhhhApp
+com/lucasallegri/CommandPlaying.java
+ com.lucasallegri.CommandPlaying
 com/lucasallegri/CommandUpdate.java
  com.lucasallegri.CommandUpdate
 com/lucasallegri/CommandDebug.java

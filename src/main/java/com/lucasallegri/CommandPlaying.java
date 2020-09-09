@@ -7,8 +7,8 @@ public class CommandPlaying {
 	
 	public static void handle(Shhhhhhh bot, MessageReceivedEvent evt) {
 		for(Member member : bot.crew) {
-			member.mute(true);
-			member.deafen(true);
+			member.mute(true).queue();
+			member.deafen(true).queue();
 		}
 	}
 }
