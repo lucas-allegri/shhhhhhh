@@ -28,7 +28,7 @@ public class Shhhhhhh extends ListenerAdapter {
 
 		try {
 			this.session = JDABuilder
-					.createLight(this.token, GatewayIntent.GUILD_MESSAGES, GatewayIntent.DIRECT_MESSAGES)
+					.createLight(this.token, GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_VOICE_STATES)
 					.addEventListeners(this).setActivity(Activity.playing("Among Us")).build();
 		} catch (LoginException e) {
 			e.printStackTrace();
