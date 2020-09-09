@@ -69,7 +69,7 @@ public class Shhhhhhh extends ListenerAdapter {
 
 	@Override
 	public String toString() {
-		return "[Shhhhhhh voiceChannelSnowflake=" + this.voiceChannel + ",crew=" + this.crew + ",dead="
+		return "[Shhhhhhh voiceChannel=" + this.voiceChannel + ",crew=" + this.crew + ",dead="
 				+ this.dead + "]";
 	}
 }
